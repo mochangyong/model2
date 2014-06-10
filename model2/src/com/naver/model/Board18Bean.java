@@ -1,3 +1,4 @@
+package com.naver.model;
 import java.sql.Date;
 
 
@@ -8,7 +9,7 @@ public class Board18Bean {
 	private String board_pass;
 	private String board_title;
 	private String board_cont;
-	private String boar_file;
+	private String board_file;
 	private int board_re_ref;
 	private int board_re_lev;
 	private int board_re_seq;
@@ -44,11 +45,11 @@ public class Board18Bean {
 	public void setBoard_cont(String board_cont) {
 		this.board_cont = board_cont;
 	}
-	public String getBoar_file() {
-		return boar_file;
+	public String getBoard_file() {
+		return board_file;
 	}
-	public void setBoar_file(String boar_file) {
-		this.boar_file = boar_file;
+	public void setBoard_file(String board_file) {
+		this.board_file = board_file;
 	}
 	public int getBoard_re_ref() {
 		return board_re_ref;
