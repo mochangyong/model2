@@ -14,3 +14,6 @@ board_no int primary key
 ,board_date date
 );
 
+insert into BOARD18 (board_no,board_name,board_pass,board_title,board_cont)values(1,'모창용','aaa','나','나나');
+
+select * from BOARD18;

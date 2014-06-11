@@ -67,10 +67,10 @@ public class Board18DAO {
 	public List getBoardList(int page, int limit) {
 		String board_list_sql = "select *from"
 				+ "(select rownum rnum,board_no,board_name,board_title,"
-				+ "board_cont, board_file,board_re_ref,board_re_lev,board_re_seq"
-				+ "board_hit,board_date from"
+				+ "board_cont, board_file,board_re_ref,board_re_lev,board_re_seq,"
+				+ "board_hit,board_date from "
 				+ "(select*from board orderby board_re_ref desc,board_re_seq asc))"
-				+ "wher rnum>=?and rnum<=?";
+				+ "where rnum>=?and rnum<=?";
 
 		List list = new ArrayList();
 
@@ -223,7 +223,7 @@ public class Board18DAO {
 
 	// 글 답변
 	public int boardReply(Board18Bean board) {
-		String board_max_sql = "select max(board_no)from board";
+		String board_max_sql = "select max(board_no)from board18";
 		String sql = "";
 		int no = 0;
 		int result = 0;
@@ -240,8 +240,8 @@ public class Board18DAO {
 			else
 				no = 1;
 
-			sql = "udate board18 set board_re_seq=board_re_seq+1"
-					+ "where board_re_ref=? and board_re_seq>?";
+			sql = "udate board18 set board_re_seq=board_re_seq+1 "
+					+ "where board_re_ref=? and board_re_seq>? ";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, re_ref);
@@ -251,7 +251,7 @@ public class Board18DAO {
 			re_seq = re_seq + 1;
 			re_lev = re_lev + 1;
 
-			sql = "insert into board(board_no,board_name, board_pass,"
+			sql = "insert into board18(board_no,board_name, board_pass,"
 					+ "board_title, board_cont,board_file,board_re_ref,"
 					+ "board_re_lev,board_re_seq,board_hit,board_date)"
 					+ "values(?,?,?,?,?,?,?,?,?,?,sysdate)";
@@ -289,7 +289,7 @@ public class Board18DAO {
 
 	// 글 수정
 	public boolean boardModify(Board18Bean modifyboard) throws Exception {
-		String sql = "update board18 set board_title=?,board_cont=?"
+		String sql = "update board18 set board_title=?,board_cont=? "
 				+ "where board_no=?";
 
 		try {
@@ -363,7 +363,7 @@ public class Board18DAO {
 
 	// 글쓴이인지 확인
 	public boolean isBoardWriter(int no, String pass) {
-		String board_sql = "select*from board where board_no=?";
+		String board_sql = "select*from board18 where board_no=?";
 
 		try {
 			pstmt = con.prepareStatement(board_sql);

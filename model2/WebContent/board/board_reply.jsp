@@ -44,7 +44,7 @@
 			<div align="center">Á¦¸ñ</div>
 		</td>
 		<td>
-			<input tpye="text" name="board_title" size="50" maxlength="100"
+			<input type="text" name="board_title" size="50" maxlength="100"
 						value="Re:<%=board.getBoard_title() %>" />
 		</td>
 	</tr>

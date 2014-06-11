@@ -1,4 +1,4 @@
-<%@page import="com.naver.model.Board18Bean"%>
+<%@page import="com.naver.model.*"%>
 <%@page import="java.util.List"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -32,7 +32,7 @@ if(listcount>0){
 		</tr>
 		<tr align="center" valign="middle" bordercolor="#333333">
 			<td style="font-family: Tahoma; font-size: 8pt;" width="8%"
-				heignt="26">
+				heihgt="26">
 				<div align="center">¹øÈ£</div>
 			</td>
 			<td style="font-family: Tahoma; font-size: 8pt;" width="50%">
@@ -56,7 +56,7 @@ if(listcount>0){
 		<tr align="center" valign="middle" bordercolor="#333333"
 			onmouseover="this.style.backgroundColor = 'f8f8f8'"
 			onmouseout="this.style.backgroundColor="">
-			<td height="23" style="font-family: tahoma; font-size: 10pt;">
+			<td height="23" style="font-family:Tahoma; font-size: 10pt;">
 			<%=bl.getBoard_no()%>
 			</td>
 
