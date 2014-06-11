@@ -34,7 +34,7 @@ public class Board18DAO {
 	}
 
 	// 글의 개수 구하기
-	public int getListCount() {
+	public int getListCount() {//게시판 테이블 의 레코드 수를 확인하여, x변수에 전체 레코드 수를 할당한다.
 		int x = 0;
 
 		try {
@@ -60,12 +60,12 @@ public class Board18DAO {
 				} catch (SQLException e) {
 				}
 		}
-		return x;
+		return x;//레코드 수가 저장된 x 변수의 값을 리턴한다.
 	}
 
 	// 글목록 보기
 	public List getBoardList(int page, int limit) {
-		String board_list_sql = "select *from"
+		String board_list_sql = "select *from "
 				+ "(select rownum rnum,board_no,board_name,board_title,"
 				+ "board_cont, board_file,board_re_ref,board_re_lev,board_re_seq,"
 				+ "board_hit,board_date from "
@@ -74,8 +74,8 @@ public class Board18DAO {
 
 		List list = new ArrayList();
 
-		int startrow = (page - 1) * 10 + 1; // 읽기 시작할 row번호
-		int endrow = startrow + limit - 1;// 일을 마지막 row번호
+		int startrow = (page-1)*10+1; // 읽기 시작할 row번호
+		int endrow = startrow+limit-1;// 일을 마지막 row번호
 
 		try {
 
