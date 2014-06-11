@@ -54,7 +54,7 @@ public class BoardFrontController
 			   }catch(Exception e){
 				   e.printStackTrace();
 			   }
-		   }else if(command.equals("/BoardNodifyAction.bo")){
+		   }else if(command.equals("/BoardModifyAction.bo")){
 			   action = new BoardModifyAction();
 			   try{
 				forward=action.execute(request,response);   
@@ -83,6 +83,8 @@ public class BoardFrontController
 		 }catch(Exception e){
 			 e.printStackTrace();
 		 }
+	 }else{
+		 System.out.println("½ÇÆÐ");
 	 }
 		if(forward != null){
 			if(forward.isRedirect()){
