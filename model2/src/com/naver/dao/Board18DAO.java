@@ -38,7 +38,7 @@ public class Board18DAO {
 		int x = 0;
 
 		try {
-			pstmt = con.prepareStatement("select count(*) from board");
+			pstmt = con.prepareStatement("select count(*) from board18");
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -65,10 +65,10 @@ public class Board18DAO {
 
 	// 글목록 보기
 	public List getBoardList(int page, int limit) {
-		String board_ilsst_sql = "select *from"
+		String board_list_sql = "select *from"
 				+ "(select rownum rnum,board_no,board_name,board_title,"
 				+ "board_cont, board_file,board_re_ref,board_re_lev,board_re_seq"
-				+ "board_hitboard_date from"
+				+ "board_hit,board_date from"
 				+ "(select*from board orderby board_re_ref desc,board_re_seq asc))"
 				+ "wher rnum>=?and rnum<=?";
 
@@ -79,7 +79,7 @@ public class Board18DAO {
 
 		try {
 
-			pstmt = con.prepareStatement(board_ilsst_sql);
+			pstmt = con.prepareStatement(board_list_sql);
 			pstmt.setInt(1, startrow);
 			pstmt.setInt(2, endrow);
 			rs = pstmt.executeQuery();

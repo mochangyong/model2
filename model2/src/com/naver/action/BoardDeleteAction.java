@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.naver.dao.Board18DAO;
 
-public class boardDeleteAction implements Action {
+public class BoardDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
